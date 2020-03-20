@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 2112848cf3724ba408a45a1e8368a6a9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - HudDamageText: {fileID: 3718968426576012627, guid: 2d8832b72ab33d84facefc10a40bbcf6,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

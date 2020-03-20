@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<rows>
+  <row>
+    <Name>smallSlime</Name>
+    <Level>1</Level>
+    <Max_HP>20</Max_HP>
+    <Attack_Min>2</Attack_Min>
+    <Attack_Max>4</Attack_Max>
+    <Defence>1</Defence>
+    <Exp>5</Exp>
+    <RewardMoney>10</RewardMoney>
+  </row>
+  <row>
+    <Name>Slime</Name>
+    <Level>2</Level>
+    <Max_HP>30</Max_HP>
+    <Attack_Min>3</Attack_Min>
+    <Attack_Max>7</Attack_Max>
+    <Defence>2</Defence>
+    <Exp>10</Exp>
+    <RewardMoney>20</RewardMoney>
+  </row>
+  <row>
+    <Name>BossSlime</Name>
+    <Level>3</Level>
+    <Max_HP>40</Max_HP>
+    <Attack_Min>5</Attack_Min>
+    <Attack_Max>10</Attack_Max>
+    <Defence>3</Defence>
+    <Exp>15</Exp>
+    <RewardMoney>50</RewardMoney>
+  </row>
+</rows>

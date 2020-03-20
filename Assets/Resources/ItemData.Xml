@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<rows>
+  <row>
+    <Name>Red_portion</Name>
+    <ID>1001</ID>
+    <Explanation>Immediately restore your physical strength to +50</Explanation>
+  </row>
+  <row>
+    <Name>Exp_portion</Name>
+    <ID>1002</ID>
+    <Explanation>Add an immediate +50 value of experience.</Explanation>
+  </row>
+</rows>
