@@ -61,7 +61,9 @@ public class QuestAcceptDisplay : MonoBehaviour
 
 		for (int i = 0; i < Count; i++)
 		{
-			GameObject slot = Instantiate(QuestSlot, Window.transform.position + new Vector3(0, (-slotsize * i) - slotsize) * this.transform.localScale.x, Quaternion.identity, Window.transform);
+			GameObject slot = Instantiate(QuestSlot, 
+				Window.transform.position + new Vector3(0, (-slotsize * i) - slotsize) * this.transform.localScale.x, 
+				Quaternion.identity, Window.transform);
 
 			slot.GetComponent<QuestSlot>().InitQuestInfo(questDatas[i], QuestInfo);
 			SlotList.Add(questDatas[i].QuestID, slot);

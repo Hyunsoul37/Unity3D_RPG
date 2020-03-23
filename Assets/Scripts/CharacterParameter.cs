@@ -21,11 +21,6 @@ public class CharacterParameter : MonoBehaviour
 	public GameObject HudDamageText;
 	public Transform HudPos;
 
-	//private void Start()
-	//{
-	//	InitParameter();
-	//}
-
 	public virtual void InitParameter()
 	{
 
@@ -47,8 +42,6 @@ public class CharacterParameter : MonoBehaviour
 
 	protected virtual void UpdateAfterReceiveAttack()
 	{
-		print(name + "'s HP : " + Current_HP);
-
 		if(Current_HP <= 0)
 		{
 			Current_HP = 0;

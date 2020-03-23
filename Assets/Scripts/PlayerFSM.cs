@@ -25,7 +25,7 @@ public class PlayerFSM : MonoBehaviour
 	private float Attack_Delay = 2f;
 	private float Attack_Timer = 0f;
 	private float Attack_Distance = 1.5f;
-	//private float Chase_Distance = 2.5f;
+	
 
 	PlayerParameter p_Parameter;
 	EnemyParameter e_Parameter;
@@ -195,5 +195,10 @@ public class PlayerFSM : MonoBehaviour
 	public void ConverseNPC(GameObject NPC)
 	{
 		NPC.GetComponent<ShopNPC>().ConversePlayer();
+	}
+
+	public void CutDownTree(GameObject Tree)
+	{
+		Tree.GetComponent<TreeScript>().CutDownTree();
 	}
 }

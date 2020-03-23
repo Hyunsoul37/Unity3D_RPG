@@ -12,6 +12,7 @@ public class Slot : MonoBehaviour
 
 	public Image ItemImage;
 	private bool isSlot;
+	private bool isUsingItem;
 
 	private void Awake()
 	{
@@ -21,7 +22,6 @@ public class Slot : MonoBehaviour
 		text.fontSize = (int)(size * 0.3f);
 
 		playerParameter = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerParameter>();
-		//ItemImage = transform.GetChild(1).GetComponent<Image>();
 	}
 
 	public Item ItemReturn()
@@ -58,14 +58,21 @@ public class Slot : MonoBehaviour
 		if(slot.Count == 1)
 		{
 			CheckItemID(slot.Peek());
-			slot.Clear();
-			UpDateinfo(false, DefaultImage);
-			return;
+
+			if(isUsingItem)
+			{
+				slot.Clear();
+				UpDateinfo(false, DefaultImage);
+				return;
+			}
 		}
 
-		Item usingItem = slot.Pop();
-
+		Item usingItem = slot.Peek();
 		CheckItemID(usingItem);
+
+		if(isUsingItem)
+			slot.Pop();
+		
 
 		UpDateinfo(isSlot, ItemImage.sprite);
 	}
@@ -83,7 +90,6 @@ public class Slot : MonoBehaviour
 		}
 		else
 			text.text = "";
-		//ItemIO.SaveData();
 	}
 
 	private void CheckItemID(Item item)
@@ -99,14 +105,18 @@ public class Slot : MonoBehaviour
 					playerParameter.Current_HP += 50;
 
 				UIManager.Getinstance().UpdatePlayerUI(playerParameter);
+				isUsingItem = true;
 				break;
 
 			case 1002:
 				Debug.Log("using FreeStatus Item");
 				playerParameter.FreeStatus++;
+				isUsingItem = true;
+
 				break;
 
 			default:
+				isUsingItem = false;
 				break;
 		}
 	}

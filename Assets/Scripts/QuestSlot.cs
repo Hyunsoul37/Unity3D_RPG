@@ -13,13 +13,11 @@ public class QuestSlot : MonoBehaviour
 	public QuestData data;
 
 	private int SlotID;
-//	private bool isAccepted;
 	private bool isClear = false;
 
 	private void Start()
 	{
 		questDisplay = GetComponentInParent<QuestDisplay>();
-
 		AcceptDisplay = GetComponentInParent<QuestAcceptDisplay>();
 	}
 

@@ -38,7 +38,10 @@ public class Inventory : MonoBehaviour
 		{
 			for (int x = 0; x < slotcount_X; x++)
 			{
-				GameObject Slot = Instantiate(SlotOrigin, Window.transform.position + new Vector3(x * slot_size, -y * slot_size) * this.transform.localScale.x, Quaternion.identity, Window.transform);
+				GameObject Slot = Instantiate(SlotOrigin, 
+					Window.transform.position + new Vector3(x * slot_size, -y * slot_size) * this.transform.localScale.x,
+					Quaternion.identity, Window.transform);
+
 				Slot.name = "slot_" + y + "_" + x;
 
 				SlotList.Add(Slot);

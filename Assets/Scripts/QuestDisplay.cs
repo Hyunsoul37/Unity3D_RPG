@@ -43,7 +43,9 @@ public class QuestDisplay : MonoBehaviour
 	{
 		for(int i = 0; i < Count; i++)
 		{
-			GameObject slot = Instantiate(QuestSlot, Window.transform.position + new Vector3(0, (-slothight * i) - slothight) * this.transform.localScale.x, Quaternion.identity, Window.transform);
+			GameObject slot = Instantiate(QuestSlot, 
+				Window.transform.position + new Vector3(0, (-slothight * i) - slothight) * this.transform.localScale.x, 
+				Quaternion.identity, Window.transform);
 
 			slot.GetComponent<QuestSlot>().InitQuestInfo(QuestManager.Getinstace().questList[i], QuestInfo);
 			SlotList.Add(QuestManager.Getinstace().questList[i].QuestID, slot);
@@ -86,8 +88,6 @@ public class QuestDisplay : MonoBehaviour
 
 	public void buttonClick()
 	{
-		Debug.Log("Click " + slotID);
-
 		SlotList[slotID].GetComponent<QuestSlot>().AcceptQuest();
 		AcceptButton.interactable = false;
 	}

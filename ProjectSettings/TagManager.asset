@@ -12,6 +12,7 @@ TagManager:
   - NPC
   - ShopDisplay
   - QuestInfo
+  - Tree
   layers:
   - Default
   - TransparentFX

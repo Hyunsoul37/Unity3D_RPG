@@ -85,7 +85,6 @@ public class QuestManager : MonoBehaviour
 
 	public void KillMonster(GameObject monster)
 	{
-		Debug.Log("Kill " + monster.GetComponent<EnemyParameter>().e_name);
 		string KilledMonster = monster.GetComponent<EnemyParameter>().e_name;
 		
 		for(int i = 0; i < AcceptedquestList.Count; i++)
