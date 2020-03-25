@@ -16,6 +16,7 @@ public class Item : MonoBehaviour
 	private void Start()
 	{
 		inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
+		GetComponent<ObjectData>().Obj_ID = Item_ID;
 	}
 
 	public void AddItem()

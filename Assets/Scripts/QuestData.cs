@@ -20,7 +20,7 @@ public struct Quest
 {
 	public TYPE type;
 	public int Num;
-	public string ObjectName;
+	public int TargetObject_ID;
 
 }
 

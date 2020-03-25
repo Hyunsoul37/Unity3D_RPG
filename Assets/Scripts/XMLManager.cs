@@ -20,6 +20,7 @@ public class XMLManager : MonoBehaviour
 		public int Defence;
 		public int Exp;
 		public int RewardMoney;
+		public int Monster_ID;
 	}
 
 	private void Awake()
@@ -70,6 +71,9 @@ public class XMLManager : MonoBehaviour
 				if (childNode.Name == "RewardMoney")
 					monsterParameter.RewardMoney = int.Parse(childNode.InnerText);
 
+				if (childNode.Name == "Monster_ID")
+					monsterParameter.Monster_ID = int.Parse(childNode.InnerText);
+
 				print(childNode.Name + " : " + childNode.InnerText);
 			}
 
@@ -87,6 +91,7 @@ public class XMLManager : MonoBehaviour
 		m_Parameter.Defense = dicMonster[monName].Defence;
 		m_Parameter.Exp = dicMonster[monName].Exp;
 		m_Parameter.RewardMoney = dicMonster[monName].RewardMoney;
+		m_Parameter.Monster_ID = dicMonster[monName].Monster_ID;
 
 		Debug.Log("LoadMonsterParameterFromXML : " + monName);
 	}

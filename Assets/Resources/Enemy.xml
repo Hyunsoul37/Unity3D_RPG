@@ -9,6 +9,7 @@
     <Defence>1</Defence>
     <Exp>5</Exp>
     <RewardMoney>10</RewardMoney>
+    <Monster_ID>101</Monster_ID>
   </row>
   <row>
     <Name>Slime</Name>
@@ -19,6 +20,7 @@
     <Defence>2</Defence>
     <Exp>10</Exp>
     <RewardMoney>20</RewardMoney>
+    <Monster_ID>102</Monster_ID>
   </row>
   <row>
     <Name>BossSlime</Name>
@@ -29,5 +31,6 @@
     <Defence>3</Defence>
     <Exp>15</Exp>
     <RewardMoney>50</RewardMoney>
+    <Monster_ID>103</Monster_ID>
   </row>
 </rows>

@@ -182,7 +182,7 @@ public class PlayerFSM : MonoBehaviour
 		ChangeState(State.Idle, PlayerAni.Ani_Idle);
 		print("enemy was Killed");
 
-		QuestManager.Getinstace().SendMessage("KillMonster", CurrentEnemy);
+		QuestManager.Getinstace().SendMessage("QuestCheck", CurrentEnemy);
 		CurrentEnemy = null;
 	}
 
@@ -197,8 +197,8 @@ public class PlayerFSM : MonoBehaviour
 		NPC.GetComponent<ShopNPC>().ConversePlayer();
 	}
 
-	public void CutDownTree(GameObject Tree)
-	{
-		Tree.GetComponent<TreeScript>().CutDownTree();
-	}
+	//public void CutDownTree(GameObject Tree)
+	//{
+	//	Tree.GetComponent<TreeScript>().CutDownTree();
+	//}
 }

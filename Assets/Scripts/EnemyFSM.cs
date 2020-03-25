@@ -51,6 +51,8 @@ public class EnemyFSM : MonoBehaviour
 		e_Parameter.DeadEvent.AddListener(CallDeadEvent);
 		p_Parameter = player.gameObject.GetComponent<PlayerParameter>();
 
+		GetComponent<ObjectData>().Obj_ID = e_Parameter.Monster_ID;
+
 		controller = GetComponent<CharacterController>();
 
 		HideSelection();

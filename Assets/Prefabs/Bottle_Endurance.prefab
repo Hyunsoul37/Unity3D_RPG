@@ -9446,6 +9446,7 @@ GameObject:
   - component: {fileID: 662202586248763399}
   - component: {fileID: 662202586248763396}
   - component: {fileID: 662202586248763397}
+  - component: {fileID: -8245354451045224367}
   m_Layer: 0
   m_Name: Bottle_Endurance
   m_TagString: Untagged
@@ -9516,6 +9517,20 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: f817de45ce394aa428c36a10371ba01e, type: 3}
   ItemCount: 9
   Cost: 50
+--- !u!114 &-8245354451045224367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662891435295085565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b3d7853d9868743bf4a392ced6e2d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Obj_ID: 0
+  type: 0
 --- !u!1 &662891436121544775
 GameObject:
   m_ObjectHideFlags: 0

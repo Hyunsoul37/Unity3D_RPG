@@ -43,10 +43,10 @@ public class InputScript : MonoBehaviour
 				{
 					Player.GetComponent<PlayerFSM>().ConverseNPC(rayhit.collider.gameObject);
 				}
-				else if(rayhit.collider.gameObject.CompareTag("Tree"))
-				{
-					Player.GetComponent<PlayerFSM>().CutDownTree(rayhit.collider.gameObject);
-				}
+				//else if(rayhit.collider.gameObject.CompareTag("Tree"))
+				//{
+				//	Player.GetComponent<PlayerFSM>().CutDownTree(rayhit.collider.gameObject);
+				//}
 			}
 		}
 	}

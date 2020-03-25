@@ -8,6 +8,7 @@ public class EnemyParameter : CharacterParameter
 	public string e_name;
 	public int Exp { get; set; }
 	public int RewardMoney { get; set; }
+	public int Monster_ID { get; set; }
 	public Image HPBar;
 
 	public override void InitParameter()
@@ -19,6 +20,7 @@ public class EnemyParameter : CharacterParameter
 		Attack_Min = 3;
 		Attack_Max = 5;
 		Defense = 1;
+		Monster_ID = 100;
 
 		Exp = 10;
 		RewardMoney = Random.Range(10, 31);

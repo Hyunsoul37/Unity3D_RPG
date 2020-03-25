@@ -15,16 +15,33 @@ public class TreeScript : MonoBehaviour
 	private void Start()
 	{
 		player = GameObject.FindGameObjectWithTag("Player").transform;
+		GetComponent<ObjectData>().Obj_ID = 10001;
 	}
 
 	private void Update()
 	{
-		if(isClick)
+		//if(isClick)
+		//{
+		//	StartTimer();
+		//}
+		if (GetPlayerDistance() <= Distance)
 		{
-			StartTimer();
+			if(Input.GetKeyDown(KeyCode.F) || isClick)
+			{
+				Debug.Log("Input Key F");
+				CutDownTree();
+				StartTimer();
+			}
+			else
+			{
+				InformationUI.Getinstance().Info_Window.SetActive(true);
+				InformationUI.Getinstance().CastingBar.SetActive(false);
+				InformationUI.Getinstance().Info_Text.text = "F키를 눌러 나무 베기";
+				isClick = false;
+			}
+
+
 		}
-		else if (GetPlayerDistance() <= Distance)
-			Debug.Log("F 키를 눌러 나무 베기");
 	}
 
 	public void CutDownTree()
@@ -54,9 +71,14 @@ public class TreeScript : MonoBehaviour
 		{
 			Timer = 0f;
 			this.gameObject.SetActive(false);
+
 			DropItem();
+			InformationUI.Getinstance().Info_Window.SetActive(false);
 		}
 
 		Timer += Time.deltaTime;
+
+		InformationUI.Getinstance().CastingBar.SetActive(true);
+		InformationUI.Getinstance().images[1].rectTransform.localScale = new Vector3((Timer / CutTime), 1f, 1f);
 	}
 }

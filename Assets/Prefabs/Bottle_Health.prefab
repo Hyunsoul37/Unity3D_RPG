@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2752646816380004252}
   - component: {fileID: 3206044693143362678}
   - component: {fileID: 8946506802030087941}
+  - component: {fileID: 5655274653724251220}
   m_Layer: 0
   m_Name: Bottle_Health
   m_TagString: Untagged
@@ -82,6 +83,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5655274653724251220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875718023310840488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b3d7853d9868743bf4a392ced6e2d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Obj_ID: 0
+  type: 0
 --- !u!1 &875718023753240402
 GameObject:
   m_ObjectHideFlags: 0

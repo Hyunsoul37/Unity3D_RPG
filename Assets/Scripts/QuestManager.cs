@@ -38,31 +38,31 @@ public class QuestManager : MonoBehaviour
 	private void GeneateData()
 	{
 		questList.Add(new QuestData(0,
-									new Quest { type = TYPE.Monster, Num = 5, ObjectName = "Slime" },
+									new Quest { type = TYPE.Monster, Num = 5, TargetObject_ID = 102 },
 									"주민들의 골칫거리", 
 									"슬라임 5마리 처치하기",
 									new QuestReward { Coin = 10, Exp = 10},
 									new Current()));
 
 		questList.Add(new QuestData(1, 
-									new Quest { type = TYPE.Monster, Num = 5, ObjectName = "BossSlime" },
+									new Quest { type = TYPE.Monster, Num = 5, TargetObject_ID = 103 },
 									"주민들의 부탁",
 									"보스 슬라임 5마리 처치하기",
 									new QuestReward { Coin = 20, Exp = 20, item = RewardItem[0], itemNum = 2},
 									new Current()));
 
 		questList.Add(new QuestData(2,
-									new Quest { type = TYPE.Monster, Num = 5, ObjectName = "BossSlime" },
+									new Quest { type = TYPE.Monster, Num = 5, TargetObject_ID = 103 },
 									"Quest ID 2",
 									"Quest ID 2",
 									new QuestReward { Coin = 20, Exp = 20, item = RewardItem[0], itemNum = 2 },
 									new Current()));
 
 		questList.Add(new QuestData(4,
-									new Quest { type = TYPE.Collect, Num = 5, ObjectName = "BossSlime" },
-									"Quest ID 4",
-									"Quest ID 4",
-									new QuestReward { Coin = 20, Exp = 20, item = RewardItem[0], itemNum = 2 },
+									new Quest { type = TYPE.Collect, Num = 5, TargetObject_ID = 1003 },
+									"장작 구하기",
+									"주변의 나무를 베어 장작을 모으자",
+									new QuestReward { Coin = 20, Exp = 20, item = RewardItem[0], itemNum = 3 },
 									new Current()));
 	}
 
@@ -83,20 +83,51 @@ public class QuestManager : MonoBehaviour
 		}
 	}
 
-	public void KillMonster(GameObject monster)
-	{
-		string KilledMonster = monster.GetComponent<EnemyParameter>().e_name;
+	//public void KillMonster(GameObject monster)
+	//{
+	//	string KilledMonster = monster.GetComponent<EnemyParameter>().e_name;
 		
-		for(int i = 0; i < AcceptedquestList.Count; i++)
+	//	for(int i = 0; i < AcceptedquestList.Count; i++)
+	//	{
+	//		if(AcceptedquestList[i].quest.type == TYPE.Monster)
+	//		{
+	//			if(AcceptedquestList[i].quest.ObjectName == KilledMonster)
+	//			{
+	//				AcceptedquestList[i].current.Num++;
+	//			}
+
+	//			if(AcceptedquestList[i].quest.Num == AcceptedquestList[i].current.Num)
+	//			{
+	//				AcceptedquestList[i].isClear = true;
+	//			}
+	//		}
+	//	}
+	//}
+
+	//public void GetCollectItem(GameObject collect)
+	//{
+	//	string Collection;
+	//}
+
+	public void QuestCheck(GameObject obj)
+	{
+		int Obj_ID = obj.GetComponent<ObjectData>().Obj_ID;
+
+
+		for (int i = 0; i < AcceptedquestList.Count; i++)
 		{
-			if(AcceptedquestList[i].quest.type == TYPE.Monster)
+			if (AcceptedquestList[i].quest.type == TYPE.Monster)
 			{
-				if(AcceptedquestList[i].quest.ObjectName == KilledMonster)
+				if (AcceptedquestList[i].quest.TargetObject_ID == Obj_ID)
 				{
 					AcceptedquestList[i].current.Num++;
+
+
+					Debug.Log(AcceptedquestList[i].QuestName);
+					Debug.Log(AcceptedquestList[i].current.Num);
 				}
 
-				if(AcceptedquestList[i].quest.Num == AcceptedquestList[i].current.Num)
+				if (AcceptedquestList[i].quest.Num <= AcceptedquestList[i].current.Num)
 				{
 					AcceptedquestList[i].isClear = true;
 				}
