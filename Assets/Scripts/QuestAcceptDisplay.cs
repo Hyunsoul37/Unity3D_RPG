@@ -117,7 +117,12 @@ public class QuestAcceptDisplay : MonoBehaviour
 		player.Money += RemoveData.Reward.Coin;
 		player.Current_Exp += RemoveData.Reward.Exp;
 
-		if(RemoveData.Reward.item != null)
+		if(RemoveData.quest.type == TYPE.Collect)
+		{
+			RemoveQuestItem(RemoveData);
+		}
+
+		if (RemoveData.Reward.item != null)
 		{
 			Inventory inven = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
 
@@ -136,5 +141,45 @@ public class QuestAcceptDisplay : MonoBehaviour
 		QuestManager.Getinstace().AcceptedquestList.Remove(RemoveData);
 		QuestManager.Getinstace().questList.Remove(RemoveData);
 		QuestInfo.SetActive(false);
+	}
+
+	private void RemoveQuestItem(QuestData RemoveData)
+	{
+		bool isRemoved = false;
+		Inventory inven = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
+
+		for (int i = 0; i < inven.SlotList.Count; i++)
+		{
+			Slot GetSlot = inven.SlotList[i].GetComponent<Slot>();
+			Debug.Log("for case i : " + i);
+
+			if (GetSlot.isSlots())
+			{
+				if (GetSlot.ItemReturn().Item_ID == RemoveData.quest.TargetObject_ID
+					&& GetSlot.slot.Count >= RemoveData.quest.Num)
+				{
+					for (int j = 0; j < RemoveData.quest.Num; j++)
+					{
+						if (GetSlot.slot.Count == 1)
+						{
+							GetSlot.slot.Clear();
+							GetSlot.UpDateinfo(false, GetSlot.DefaultImage);
+						}
+						else
+						{
+							inven.SlotList[i].GetComponent<Slot>().slot.Pop();
+						}
+
+						isRemoved = true;
+					}
+				}
+			}
+
+			if(isRemoved == true)
+			{
+				return;
+			}
+
+		}
 	}
 }
