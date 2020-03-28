@@ -104,15 +104,9 @@ public class QuestManager : MonoBehaviour
 	//	}
 	//}
 
-	//public void GetCollectItem(GameObject collect)
-	//{
-	//	string Collection;
-	//}
-
 	public void QuestCheck(GameObject obj)
 	{
 		int Obj_ID = obj.GetComponent<ObjectData>().Obj_ID;
-
 
 		for (int i = 0; i < AcceptedquestList.Count; i++)
 		{
@@ -130,6 +124,29 @@ public class QuestManager : MonoBehaviour
 				if (AcceptedquestList[i].quest.Num <= AcceptedquestList[i].current.Num)
 				{
 					AcceptedquestList[i].isClear = true;
+				}
+			}
+			else if(AcceptedquestList[i].quest.type == TYPE.Collect)
+			{
+				Inventory inven = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
+
+				for(int j = 0; j < inven.SlotList.Count; j++)
+				{
+					Slot slot = inven.SlotList[j].GetComponent<Slot>();
+
+					if (slot.isSlots())
+					{
+						Item item = slot.slot.Peek();
+
+						Debug.Log(item.Item_ID + " " + AcceptedquestList[i].quest.TargetObject_ID);
+
+						if(item.Item_ID == AcceptedquestList[i].quest.TargetObject_ID &&
+							slot.slot.Count >= AcceptedquestList[i].quest.Num)
+						{
+							AcceptedquestList[i].isClear = true;
+						}
+
+					}
 				}
 			}
 		}

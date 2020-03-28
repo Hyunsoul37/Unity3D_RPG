@@ -24,7 +24,11 @@ public class Item : MonoBehaviour
 		if (!inventory.AddItem(this))
 			Debug.Log("Full Inventory");
 		else
+		{
 			gameObject.SetActive(false);
+			QuestManager.Getinstace().QuestCheck(this.gameObject);
+			Destroy(this.gameObject);
+		}
 	}
 
 	private void OnTriggerEnter(Collider other)
